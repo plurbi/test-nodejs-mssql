@@ -6,7 +6,7 @@ const app = express();
 
 //my modules
 const constants = require('./common/constants.js');
-
+const dbconfig = require('./dal/dbConfg.js');
 //settings
 app.set(constants.PORT, process.env.PORT || 3000);
 app.set('view engine','ejs');
@@ -17,26 +17,16 @@ app.use(require("./routes/routes"));
 app.use(morgan('dev'));
 
 
-var  config = {
-    user: 'sa',
-    password: '352435',
-    server: 'PALUR\\SKYNET',
-    port: 1444,
-    database: 'FAM',
-     options: {
-        encrypt: false // Use this if you're on Windows Azure
-    }
-}
 
-var connection = sql.connect(config,function(err, res){
+
+var connection = sql.connect(dbconfig, function(err, res){
     if(err) {
         console.log('errores');
     }else {
-        console.log('Conectado a ',config.database);
+        console.log('Conectado a ', dbconfig.database);
     }
 });
 
-app.listen(app.get(constants.PORT), ()=>{
-    console.log('server running on login branch: ', constants.PORT,app.get(constants.PORT));
- 
+app.listen(app.get(constants.PORT), () => {
+    console.log('server running on master branch: ', constants.PORT,app.get(constants.PORT));
 })

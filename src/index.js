@@ -37,6 +37,6 @@ var connection = sql.connect(config,function(err, res){
 });
 
 app.listen(app.get(constants.PORT), ()=>{
-    console.log('server running: ', constants.PORT,app.get(constants.PORT));
+    console.log('server running on master branch: ', constants.PORT,app.get(constants.PORT));
  
 })

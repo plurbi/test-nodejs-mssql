@@ -5,7 +5,7 @@ const sql = require('mssql');
 const app = express();
 
 //my modules
-const constants = require('./constants.js');
+const constants = require('./common/constants.js');
 
 //settings
 app.set(constants.PORT, process.env.PORT || 3000);

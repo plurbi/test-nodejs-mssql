@@ -1,9 +1,7 @@
 const shell = require('node-powershell');
-const child_process = require('child_process');
-const path = require('path');
-const scriptDriver = require('./scriptManager.js');
+const scriptManager = require('./scriptManager.js');
 
- var pwrShell = {};
+var pwrShell = {};
 pwrShell.ejecutionSimple = () => {
     var child = child_process.spawn('powershell.exe', ['test.ps1']);
 
@@ -55,7 +53,7 @@ pwrShell.ejecutionParamsTEST = () => {
         noProfile: true
       });  
 
-      ps.addCommand(scriptDriver.callScript(scriptDriver.constants.explorer));
+      ps.addCommand(scriptManager.callScript(scriptManager.constants.explorer));
       ps.invoke() .then(output => {
         console.log(output);        
       })

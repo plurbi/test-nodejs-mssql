@@ -17,9 +17,6 @@ app.set('views',path.join(__dirname,'views'));
 app.use(require("./routes/routes"));
 app.use(morgan('dev'));
 
-
-
-
 var connection = sql.connect(dbconfig, function(err, res){
     if(err) {
         console.log('errores',err);
@@ -27,7 +24,6 @@ var connection = sql.connect(dbconfig, function(err, res){
         console.log('Conectado a ', dbconfig.database);
     }
 });
-
 
 app.listen(app.get(constants.PORT), () => {
     console.log('server running on master branch: ', constants.PORT,app.get(constants.PORT));

@@ -13,6 +13,8 @@ scripts.callScript = (scriptSelected) => {
     }
     return 'echo call script ';
 }
+
+
 scripts.echoTest = function(){    
  return 'echo from js';
 }

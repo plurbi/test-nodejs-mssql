@@ -7,7 +7,7 @@ const app = express();
 //my modules
 const constants = require('./common/constants.js');
 const dbconfig = require('./dal/dbConfg.js');
-const pwrShell = require('./devops/ejecutionPS.js')
+const pwrShell = require('./devops/PowerShellManager.js')
 //settings
 app.set(constants.PORT, process.env.PORT || 3000);
 app.set('view engine','ejs');

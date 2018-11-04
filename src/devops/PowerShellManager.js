@@ -1,7 +1,7 @@
 const shell = require('node-powershell');
 const child_process = require('child_process');
 const path = require('path');
-const scriptDriver = require('./scriptDriver.js');
+const scriptDriver = require('./scriptManager.js');
 
  var pwrShell = {};
 pwrShell.ejecutionSimple = () => {
@@ -47,13 +47,15 @@ pwrShell.ejecution = () => {
         ps.dispose();
       });
 };
+
 pwrShell.ejecutionParamsTEST = () => {   
      
     var ps = new shell({
         executionPolicy: 'bypass',
         noProfile: true
-      });      
-      ps.addCommand(scriptDriver.callScript());
+      });  
+
+      ps.addCommand(scriptDriver.callScript(scriptDriver.constants.explorer));
       ps.invoke() .then(output => {
         console.log(output);        
       })

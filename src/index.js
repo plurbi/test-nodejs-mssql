@@ -21,7 +21,7 @@ app.use(morgan('dev'));
 
 var connection = sql.connect(dbconfig, function(err, res){
     if(err) {
-        console.log('errores');
+        console.log('errores',err);
     }else {
         console.log('Conectado a ', dbconfig.database);
     }

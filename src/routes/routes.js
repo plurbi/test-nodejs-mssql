@@ -4,7 +4,7 @@ const router = express.Router();
 
 router.get('/',(req,res,next)=>{
    var request = new sql.Request();
-   request.query('SELECT top 5 * FROM dbo.Comprobantes', (err,result) => {
+   request.query('SELECT top 5 * FROM dbo.usuarios', (err,result) => {
         if(err){
             console.log('error / ',err);
             res.send(err);
